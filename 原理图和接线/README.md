@@ -1,7 +1,10 @@
 # Internet-time
 由于开发板未配置数码管，因此使用集成化的由TM1638驱动的数码管模块。
+
 1.将STB接P17
+
 2.将CLK接P16
+
 3.将DIO接P15
 
 开发板上提供OLED接口，其中OLED的CLK接的是开发板的P24,SDA接P25
