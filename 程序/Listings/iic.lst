@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.0.0   IIC                                                               02/04/2023 19:24:04 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE IIC
+OBJECT MODULE PLACED IN .\Objects\iic.obj
+COMPILER INVOKED BY: E:\EE\Keil_v5\C51\BIN\C51.EXE hardware\iic.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\hardware;.\sys
+                    -tem) DEBUG OBJECTEXTEND PRINT(.\Listings\iic.lst) OBJECT(.\Objects\iic.obj)
+
+line level    source
+
+   1          #include "iic.h"
+   2          
+   3          void iicStart()
+   4          {
+   5   1              SCL=1;
+   6   1              SDA=1;
+   7   1              //Delay5us();
+   8   1              SDA=0;
+   9   1              //Delay5us();
+  10   1      }
+  11          
+  12          void iicStop()
+  13          {
+  14   1              SCL=1;
+  15   1              SDA=0;
+  16   1              //Delay5us();
+  17   1              SDA=1;
+  18   1              //Delay5us();
+  19   1      }
+  20          
+  21          void iicSendData(uchar dat)
+  22          {
+  23   1              uint i;
+  24   1              SCL=0;
+  25   1              for(i=0;i<8;i++)
+  26   1              {
+  27   2                      SDA=dat&0x80?1:0;
+  28   2                      SCL=1;
+  29   2                      _nop_();
+  30   2                      SCL=0;
+  31   2                      dat=dat<<1;
+  32   2              }
+  33   1      }
+  34          void iicWaitAck()
+  35          {
+  36   1              SCL=1;
+  37   1              SCL=0;
+  38   1      }
+  39          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
