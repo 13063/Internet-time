@@ -1,0 +1,10 @@
+".\Objects\main.obj",
+".\Objects\tm1638.obj",
+".\Objects\delay.obj",
+".\Objects\public.obj",
+".\Objects\ssd1306.obj",
+".\Objects\iic.obj",
+".\Objects\uart.obj",
+".\Objects\ds18b20.obj" 
+TO ".\Objects\8266网络时间OLED" 
+PRINT(".\Listings\8266网络时间OLED.m51") RAMSIZE(256) 
